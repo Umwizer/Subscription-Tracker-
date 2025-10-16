@@ -1,15 +1,12 @@
 import { Router } from "express";
+import { signOut, signUp, singIn } from "../controllers/auth.controllers";
 
 const authRoutes = Router();
 
-// You can later add a valid route handler like:
-authRoutes.post("/sign-up", (req, res) => {
-  res.send("Sign Up successful!");
-});
-authRoutes.post("/sign-in", (req, res) => {
-  res.send("Sign In");
-});
-authRoutes.post("/sign-out", (req, res) => {
-  res.send("Sign out Successful!");
-});
+//Path: /api/v1/auth/sign-up(POST)
+authRoutes.post("/sign-up", signUp);
+//Path: /api/v1/auth/sign-in(POST)
+authRoutes.post("/sign-in", singIn);
+//Path: /api/v1/auth/sign-out(POST)
+authRoutes.post("/sign-out", signOut);
 export default authRoutes;
